@@ -2,6 +2,7 @@
 
 import { ArrowDownRight, ArrowUpRight, Code2, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { siteConfig } from "@/data/site";
 
 export function Hero() {
@@ -29,18 +30,25 @@ export function Hero() {
         </motion.div>
         <motion.div {...enter(.47)} className="tech-row" aria-label="Technologies used"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Tailwind CSS</span><span>Git</span><span>Vercel</span></motion.div>
       </div>
-      <motion.aside initial={reduced ? false : { opacity: 0, x: 42, rotate: 1.5 }} animate={reduced ? undefined : { opacity: 1, x: 0, rotate: 0 }} transition={{ duration: .9, delay: .28, ease: [0.22, 1, 0.36, 1] }} className="console" aria-label="Current developer status">
-        <div className="console-bar"><span/><span/><span/><code>current_status.json</code></div>
-        <pre>{`{
+      <div className="hero-visual">
+        <motion.div initial={reduced ? false : { opacity: 0, scale: .92, y: 26 }} animate={reduced ? undefined : { opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: .2, ease: [0.22, 1, 0.36, 1] }} className="portrait-stage">
+          <span className="portrait-code" aria-hidden="true">01<br/>MQ<br/>DEV</span>
+          <Image src="/micaela-quizon-portrait.png" width={767} height={1020} sizes="(max-width: 680px) 90vw, (max-width: 980px) 560px, 470px" priority alt="Micaela Quizon working on a laptop" />
+          <div className="portrait-label"><span className="status-dot"/><strong>Micaela Quizon</strong><small>Software Developer · California</small></div>
+        </motion.div>
+        <motion.aside initial={reduced ? false : { opacity: 0, x: 42, rotate: 1.5 }} animate={reduced ? undefined : { opacity: 1, x: 0, rotate: 0 }} transition={{ duration: .9, delay: .42, ease: [0.22, 1, 0.36, 1] }} className="console" aria-label="Current developer status">
+          <div className="console-bar"><span/><span/><span/><code>current_status.json</code></div>
+          <pre>{`{
   "role": "Software Developer",
   "location": "California",
   "currently_building":
     "Developer Portfolio",
   "status": "Open to opportunities"
 }`}</pre>
-        <div className="console-footer"><span className="status-dot" /> system ready <span>UTF-8</span></div>
-        <span className="console-scan" aria-hidden="true" />
-      </motion.aside>
+          <div className="console-footer"><span className="status-dot" /> system ready <span>UTF-8</span></div>
+          <span className="console-scan" aria-hidden="true" />
+        </motion.aside>
+      </div>
       <a className="scroll-cue" href="#about"><span>Scroll to explore</span><ArrowDownRight size={18}/></a>
     </section>
   );
