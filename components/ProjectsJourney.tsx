@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Check, GitBranch } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Check, GitBranch } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { projects, journey } from "@/data/site";
 import { SectionHeading } from "./SectionHeading";
@@ -13,7 +14,7 @@ export function ProjectsJourney() {
       <div className="project-list">{projects.map((project, index) => <motion.article initial={reduced ? false : { opacity: 0, x: -24 }} whileInView={reduced ? undefined : { opacity: 1, x: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .55, delay: index * .08 }} whileHover={reduced ? undefined : { x: 8 }} className="project-card" key={project.name}>
         <div className="project-index">{project.index}</div>
         <div className="project-main"><div className="project-title-row"><h3>{project.name}</h3><span className={`status-badge status-${project.status.toLowerCase().replace(" ", "-")}`}>{project.status}</span></div><p>{project.description}</p><ul className="feature-list">{project.features.map(feature => <li key={feature}><Check size={14}/>{feature}</li>)}</ul><div className="stack-row">{project.stack.map(item => <span key={item}>{item}</span>)}</div></div>
-        <div className="project-actions">{project.repo ? <a href={project.repo} target="_blank" rel="noreferrer"><GitBranch size={16}/> Repository</a> : <span aria-disabled="true">Repository · soon</span>}<span>Development notes · soon</span><ArrowUpRight className="project-arrow"/></div>
+        <div className="project-actions"><Link className="project-learn-more" href={`/projects/${project.slug}`}>Learn more <ArrowRight size={16}/></Link>{project.repo ? <a href={project.repo} target="_blank" rel="noreferrer"><GitBranch size={16}/> Repository</a> : <span aria-disabled="true">Repository · private for now</span>}<ArrowUpRight className="project-arrow"/></div>
       </motion.article>)}</div>
     </section>
     <section className="section journey" id="journey">

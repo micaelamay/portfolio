@@ -25,9 +25,42 @@ export const skillGroups = [
 ] as const;
 
 export const projects = [
-  { index: "01", name: "Developer Portfolio", status: "In Development", description: "A responsive Next.js portfolio documenting my skills, learning process, and future software projects.", features: ["Reusable components", "Project case studies", "Learning log", "Accessibility optimization"], stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"], repo: "https://github.com/micaelamay/portfolio" },
-  { index: "02", name: "Business CRM", status: "Planning", description: "A customer and lead-management platform for organizing contacts, tasks, notes, and follow-ups.", features: ["User authentication", "Lead pipeline", "Customer records", "Search and filtering"], stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"], repo: null },
-  { index: "03", name: "Inventory Management System", status: "Research", description: "A business application for tracking products, stock levels, suppliers, and inventory alerts.", features: ["Product management", "Stock adjustments", "Inventory alerts", "CSV import and export"], stack: ["React", "TypeScript", "PostgreSQL", "REST API"], repo: null },
+  {
+    index: "01", slug: "developer-portfolio", name: "Developer Portfolio", status: "In Development", phase: "Design + development",
+    description: "A responsive Next.js portfolio documenting my skills, learning process, and future software projects.",
+    overview: "This portfolio is both my professional home on the web and a living record of how I approach software development. It brings my background, technical foundation, current learning, and project work into one clear experience.",
+    challenge: "A developer portfolio needs to communicate personality and technical ability without becoming noisy or difficult to navigate. The main challenge is balancing expressive visual design with honest content, accessibility, and maintainable code.",
+    solution: "I am building a component-based Next.js site with structured project data, dedicated case-study routes, responsive layouts, accessible interactions, and a violet-on-black visual system that feels distinctly mine.",
+    features: ["Reusable components", "Project case studies", "Learning log", "Accessibility optimization"],
+    goals: ["Explain my skills and growth clearly", "Give every project room for a detailed story", "Create a polished experience on mobile and desktop", "Keep content easy to update as my work evolves"],
+    approach: ["Store repeated portfolio content in typed data structures", "Use reusable sections and consistent layout patterns", "Respect reduced-motion preferences and keyboard navigation", "Validate production builds before publishing updates"],
+    nextSteps: ["Add real project screenshots as builds progress", "Replace placeholder contact details and resume", "Continue accessibility and performance review", "Expand case studies with decisions and outcomes"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"], repo: "https://github.com/micaelamay/portfolio",
+  },
+  {
+    index: "02", slug: "business-crm", name: "Business CRM", status: "Planning", phase: "Product planning",
+    description: "A customer and lead-management platform for organizing contacts, tasks, notes, and follow-ups.",
+    overview: "The Business CRM is planned as a focused workspace for small teams that need a simple way to manage relationships without the weight of an enterprise platform.",
+    challenge: "Customer information often ends up split between inboxes, documents, and spreadsheets. That makes ownership unclear, follow-ups easy to miss, and relationship history difficult to understand.",
+    solution: "The planned application will bring contacts, lead stages, notes, tasks, and activity into one searchable interface. The first version will prioritize clarity and dependable everyday workflows over a long list of advanced features.",
+    features: ["User authentication", "Lead pipeline", "Customer records", "Search and filtering"],
+    goals: ["Create one reliable source for customer context", "Make the next follow-up immediately visible", "Support a clear lead-to-customer workflow", "Keep the interface approachable for small teams"],
+    approach: ["Model organizations, contacts, leads, tasks, and activity separately", "Protect records with authenticated, role-aware access", "Design the pipeline for keyboard and touch interaction", "Build filtering into the data model from the beginning"],
+    nextSteps: ["Finalize core user stories", "Create the first database schema", "Prototype the lead pipeline", "Define authentication and permission rules"],
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"], repo: null,
+  },
+  {
+    index: "03", slug: "inventory-management-system", name: "Inventory Management System", status: "Research", phase: "Discovery + research",
+    description: "A business application for tracking products, stock levels, suppliers, and inventory alerts.",
+    overview: "This project explores how a straightforward inventory tool can help a small business understand what is available, what changed, and what needs attention.",
+    challenge: "Inventory counts become unreliable when purchases, sales, returns, and manual corrections are recorded inconsistently. A useful system must preserve the reason behind every adjustment—not only the latest number.",
+    solution: "The proposed system uses products, locations, suppliers, and an immutable adjustment history to calculate stock accurately. Alerts and import tools will reduce repetitive work while keeping changes traceable.",
+    features: ["Product management", "Stock adjustments", "Inventory alerts", "CSV import and export"],
+    goals: ["Make current stock easy to understand", "Preserve a clear history of every adjustment", "Identify low-stock items before they become urgent", "Support common spreadsheet-based migration workflows"],
+    approach: ["Treat stock changes as transactions instead of overwriting totals", "Validate imports before committing records", "Separate reusable business rules from interface code", "Design API boundaries for future integrations"],
+    nextSteps: ["Interview potential users about their current workflow", "Document adjustment and alert rules", "Prototype product and stock screens", "Evaluate reporting requirements"],
+    stack: ["React", "TypeScript", "PostgreSQL", "REST API"], repo: null,
+  },
 ] as const;
 
 export const journey = [
